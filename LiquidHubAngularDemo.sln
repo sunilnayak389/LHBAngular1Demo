@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LHB.Web", "LHB.Web\LHB.Web.csproj", "{13748B9B-9E01-4A4F-9730-369F306BE0E1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LHB.API", "LHB.API\LHB.API.csproj", "{9B7458B3-536D-4C2B-A4AB-48E0BF45A797}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{13748B9B-9E01-4A4F-9730-369F306BE0E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13748B9B-9E01-4A4F-9730-369F306BE0E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13748B9B-9E01-4A4F-9730-369F306BE0E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B7458B3-536D-4C2B-A4AB-48E0BF45A797}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B7458B3-536D-4C2B-A4AB-48E0BF45A797}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B7458B3-536D-4C2B-A4AB-48E0BF45A797}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B7458B3-536D-4C2B-A4AB-48E0BF45A797}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

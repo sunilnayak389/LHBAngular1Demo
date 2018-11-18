@@ -9,7 +9,7 @@
          * 'blocks.exception',*/
         //'myApp.CommonDirectives',
         'CommonServices',
-        //'demoservice',
+        'demoservice',
 
         /*3rd Party modules */
         'ui.bootstrap'

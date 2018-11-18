@@ -1,34 +1,4 @@
-﻿<div class="container" ng-controller="demoCtlr as vm">
-    <input type="text" ng-model="vm.myname" />
-    My Name is : {{vm.myname | pascalCase }} <p>{{ 1400956671914 | date: 'dd-MMM-yyyy' }}</p>
-
-    <table class="table table-striped fader">
-        <tbody>
-            <tr>
-                <th>Name</th>
-                <th>Department</th>
-                <th>DOB</th>
-                <th class="pull-right">Holding value</th>
-            </tr>
-            <tr data-ng-repeat="row in vm.lectureData | limitTo : 5">
-                <td>
-                    {{row.Name }}
-                </td>
-                <td>
-                    {{row.Department }}
-                </td>
-                <td>
-                    {{row.DOB | date : "MMM dd, yyyy"}}
-                </td>
-                <td class="pull-right">
-                    {{row.HoldingValue | convertMillion }}
-                </td>
-            </tr>
-        </tbody>
-    </table>
-
-
-
+﻿<div class="container">
     <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
         <div class="panel panel-info">
             <div class="panel-heading">
@@ -44,19 +14,19 @@
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                         <!--<input id="exampleInput" type="month" name="input" value=""
                                placeholder="yyyy-MM" min="2013-01" max="2013-12" required />-->
-                        <input id="login-username" type="text" class="form-control" name="username" ng-model="vm.user.name" placeholder="username or email">
+                        <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="username or email">
                     </div>
 
                     <div style="margin-bottom: 25px" class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                        <input id="login-password" type="password" class="form-control" name="password" ng-model="vm.user.password" placeholder="password">
+                        <input id="login-password" type="password" class="form-control" name="password" placeholder="password">
                     </div>
 
 
                     <div class="input-group">
                         <div class="checkbox">
                             <label>
-                                <input id="login-remember" type="checkbox" name="remember" ng-model="vm.user.isRemember"> Remember me
+                                <input id="login-remember" type="checkbox" name="remember" value="1"> Remember me
                             </label>
                         </div>
                     </div>
@@ -64,7 +34,7 @@
                     <div style="margin-top:10px" class="form-group">
                         <!-- Button -->
                         <div class="col-sm-12 controls">
-                            <a id="btn-login" ng-click="vm.logIn()" class="btn btn-success">Login  </a>
+                            <a id="btn-login" href="#" class="btn btn-success">Login  </a>
                             <a id="btn-fblogin" href="#" class="btn btn-primary">Login with Facebook</a>
                         </div>
                     </div>

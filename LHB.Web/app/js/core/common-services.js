@@ -34,7 +34,8 @@
                         deferred.resolve(cached);
                     }
                     else {
-
+                       
+                       // var promise = $http.get(serviceUri, { headers: { 'Authorization': 'Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==' }});
                         var promise = $http.get(serviceUri);
 
                         promise.then(
@@ -146,99 +147,7 @@
                 }
             };
         }]).
-        //factory('DataService', ['$http', '$q', function ($http, $q) {
-
-        //    return {
-
-        //        get: function (serviceUri) {
-
-        //          //  uiService.blocker.blockui();
-
-        //            var deferred = $q.defer();
-
-        //            var promise = $http.get(serviceUri);
-
-        //            promise.then(
-        //                function (payload) {
-        //                    deferred.resolve(payload.data);
-
-        //                   // uiService.blocker.unblockui();
-        //                },
-        //                function (payload) {
-        //                    deferred.reject(payload.data);
-
-        //                   // uiService.blocker.unblockui();
-        //                });
-
-        //            return deferred.promise;
-        //        },
-
-        //        post: function (serviceUri, data) {
-
-        //            var deferred = $q.defer();
-
-        //            var promise = $http.post(serviceUri, data);
-
-        //            promise.then(
-        //                function (payload) {
-        //                    deferred.resolve(payload.data);
-        //                },
-        //                function (payload) {
-        //                    deferred.reject(payload.data);
-        //                });
-
-        //            return deferred.promise;
-        //        },
-
-        //        put: function (serviceUri, data) {
-        //            var deferred = $q.defer();
-
-        //            var promise = $http.put(serviceUri, data);
-
-        //            promise.then(
-        //                function (payload) {
-        //                    deferred.resolve(payload.data);
-        //                },
-        //                function (payload) {
-        //                    deferred.reject(payload.data);
-        //                });
-
-        //            return deferred.promise;
-        //        },
-
-        //        patch: function (serviceUri, data) {
-        //            var deferred = $q.defer();
-
-        //            var promise = $http.patch(serviceUri, data);
-
-        //            promise.then(
-        //                function (payload) {
-        //                    deferred.resolve(payload.data);
-        //                },
-        //                function (payload) {
-        //                    deferred.reject(payload.data);
-        //                });
-
-        //            return deferred.promise;
-        //        },
-
-        //        delete: function (serviceUri) {
-        //            var deferred = $q.defer();
-
-        //            var promise = $http.delete(serviceUri);
-
-        //            promise.then(
-        //                function (payload) {
-        //                    deferred.resolve(payload.data);
-        //                },
-        //                function (payload) {
-        //                    deferred.reject(payload.data);
-        //                });
-
-        //            return deferred.promise;
-        //        }
-        //    };
-        //}]).
+      
         factory('rootScope', ['$rootScope', function ($rootScope) {
             var service = {
                 MyRequestsTabState: {
