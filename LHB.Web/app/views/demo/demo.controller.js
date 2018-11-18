@@ -2,18 +2,18 @@
     'use strict';
     angular.module("demo", ['ngRoute', 'CommonServices'])
        //.controller('demoCtlr', demoCtlr);
-    //angular.module('demo').config(config);
+    angular.module('demo').config(config);
 
-    //function config($routeProvider) {
+    function config($routeProvider) {
 
-    //    $routeProvider.when("/Admin",
-    //      {
-    //          templateUrl: "/Content/views/Admin/demo.html",
-    //          controllerAs: 'vm',
-    //          controller: 'demoCtlr',
+        $routeProvider.when("/demo",
+          {
+              templateUrl: "/app/views/demo/demo.html",
+              controllerAs: 'vm',
+              controller: 'demoCtlr',
 
-    //      });
-    //}
+          });
+    }
     angular.module('demo').controller('demoCtlr', demoCtlr);
     demoCtlr.$inject = ['$scope', '$q'];
 
