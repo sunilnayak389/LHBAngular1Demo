@@ -73,6 +73,7 @@
     <Content Include="app\js\core\constant-services.js" />
     <Content Include="app\js\core\core-module.js" />
     <Content Include="app\js\core\custom-filters.js" />
+    <Content Include="app\js\core\rnd.js" />
     <Content Include="app\js\services\demo.service.js" />
     <Content Include="app\views\demo\demo.html" />
     <Content Include="app\views\demo\demo.controller.js" />
