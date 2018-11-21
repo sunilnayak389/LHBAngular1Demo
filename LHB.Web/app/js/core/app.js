@@ -20,7 +20,7 @@
         //'myApp.home',
         'demo',
         'test'
-        
-    ])
+
+    ]);
 
 })(jQuery, toastr);

@@ -73,11 +73,14 @@
     <Content Include="app\js\core\constant-services.js" />
     <Content Include="app\js\core\core-module.js" />
     <Content Include="app\js\core\custom-filters.js" />
+    <Content Include="app\js\core\demoDataService.js" />
     <Content Include="app\js\services\demo.service.js" />
+    <Content Include="app\js\services\test.service.js" />
     <Content Include="app\views\demo\demo.html" />
     <Content Include="app\views\demo\demo.controller.js" />
     <Content Include="app\views\test\test.controller.js" />
     <Content Include="app\views\test\test.html" />
+    <Content Include="app\views\test\test1.html" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />

@@ -3,27 +3,27 @@
     'use strict';
 
     angular.module('CommonServices', ['myApp'])
-         .factory('rootScopeSearch', [function () {
-             var service = {
-                 RetainedSearchParams: {}
-             };
-             return service;
-         }])
-         .factory('CacheService', ['$cacheFactory', function ($cacheFactory) {
+        .factory('rootScopeSearch', [function () {
+            var service = {
+                RetainedSearchParams: {}
+            };
+            return service;
+        }])
+        .factory('CacheService', ['$cacheFactory', function ($cacheFactory) {
+            
+            return $cacheFactory('app-cache');
 
-             return $cacheFactory('app-cache');
-
-         }])
+        }])
         .factory('DataService', ['$http', '$q', 'UIService', 'CacheService', function ($http, $q, UIService, CacheService) {
 
             return {
-
+               
                 clearCache: function (serviceUri) {
                     CacheService.remove(serviceUri);
                 },
 
                 get: function (serviceUri, fromCache) {
-
+                    debugger;
                     fromCache = angular.isDefined(fromCache) ? fromCache : false;
 
                     var deferred = $q.defer();
@@ -34,8 +34,8 @@
                         deferred.resolve(cached);
                     }
                     else {
-                       
-                       // var promise = $http.get(serviceUri, { headers: { 'Authorization': 'Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==' }});
+
+                        // var promise = $http.get(serviceUri, { headers: { 'Authorization': 'Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==' }});
                         var promise = $http.get(serviceUri);
 
                         promise.then(
@@ -147,7 +147,7 @@
                 }
             };
         }]).
-      
+
         factory('rootScope', ['$rootScope', function ($rootScope) {
             var service = {
                 MyRequestsTabState: {
@@ -212,4 +212,5 @@
                 isInternalUser: false
             };
         });
+
 })();

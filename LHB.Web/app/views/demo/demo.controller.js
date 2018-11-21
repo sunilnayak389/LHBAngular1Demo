@@ -55,7 +55,7 @@
     //      });
     //}
     angular.module('demo').controller('demoCtlr', demoCtlr);
-    demoCtlr.$inject = ['$scope', '$q','demoservice'];
+    demoCtlr.$inject = ['$scope', '$q', 'demoservice'];
 
 
    
@@ -110,8 +110,9 @@
 
         init();
         function init() {
+            
             return demoService.GetEmployeeData().then(function (data) {
-                debugger;
+            
                 if (data) {
                     vm.empData = data;
                 }
@@ -132,11 +133,29 @@
 
                 console.log("error occured");
             }
-            )
+            );
         }
 
         //start
+        function asyncGreet1(name) {
+            // perform some asynchronous operation, resolve or reject the promise when appropriate.
+            return $q(function (resolve, reject) {
+                setTimeout(function () {
+                    if (5==8) {
+                        resolve('Hello, ' + name + '!');
+                    } else {
+                        reject('Greeting ' + name + ' is not allowed.');
+                    }
+                }, 1000);
+            });
+        };
 
+        var promise = asyncGreet1('Robin Hood');
+        promise.then(function (greeting) {
+            alert('Success: ' + greeting);
+        }, function (reason) {
+            alert('Failed: ' + reason);
+        });
         //End
 
 
