@@ -74,6 +74,7 @@
     <Content Include="app\js\core\core-module.js" />
     <Content Include="app\js\core\custom-filters.js" />
     <Content Include="app\js\core\demoDataService.js" />
+    <Content Include="app\js\core\rnd.js" />
     <Content Include="app\js\services\demo.service.js" />
     <Content Include="app\js\services\test.service.js" />
     <Content Include="app\views\demo\demo.html" />
