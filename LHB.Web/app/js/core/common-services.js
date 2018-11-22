@@ -10,8 +10,9 @@
             return service;
         }])
         .factory('CacheService', ['$cacheFactory', function ($cacheFactory) {
-            
-            return $cacheFactory('app-cache');
+            var cacheObject = $cacheFactory('app-cache');
+            console.log(cacheObject);
+            return cacheObject;
 
         }])
         .factory('DataService', ['$http', '$q', 'UIService', 'CacheService', function ($http, $q, UIService, CacheService) {
@@ -23,7 +24,7 @@
                 },
 
                 get: function (serviceUri, fromCache) {
-                    debugger;
+                  
                     fromCache = angular.isDefined(fromCache) ? fromCache : false;
 
                     var deferred = $q.defer();

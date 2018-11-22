@@ -80,9 +80,14 @@
     <Content Include="app\js\services\test.service.js" />
     <Content Include="app\views\demo\demo.html" />
     <Content Include="app\views\demo\demo.controller.js" />
+    <Content Include="app\views\home\home.controller.js" />
+    <Content Include="app\views\home\home.html" />
     <Content Include="app\views\test\test.controller.js" />
     <Content Include="app\views\test\test.html" />
     <Content Include="app\views\test\test1.html" />
+    <Content Include="app\views\test\testchild\child1.html" />
+    <Content Include="app\views\test\testchild\child2.html" />
+    <Content Include="app\views\test\testchild\child3.html" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />

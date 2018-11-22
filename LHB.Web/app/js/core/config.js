@@ -121,16 +121,36 @@
               templateUrl: config.baseURL + 'app/views/home/home.html',
               controller: "homeCtlr as vm"
             })
-            .state("demo", {
-                url: "/demo",
-                templateUrl: config.baseURL + 'app/views/demo/demo.html',
-                controller: "demoCtlr as vm"
+            .state("test1", {
+                url: "/lhb",
+                templateUrl: config.baseURL + 'app/views/test/test1.html',
+                controller: "testCtlr as vm"
             })
-            .state("demo.form", {
-                url: "/form",
-                templateUrl: config.baseURL + 'app/views/registration/form.html',
-                controller: "demoCtlr as vm"
+            .state("test", {
+                url: "/test",
+                templateUrl: config.baseURL + 'app/views/test/test.html',
+                controller: "testCtlr as vm"
             })
+            .state("test.child1", {
+                url: "/child1/:name",
+                templateUrl: config.baseURL + 'app/views/test/testchild/child1.html',
+                controller: "testCtlr as vm"
+            })
+            .state("test.child2", {
+                url: "/child2",
+                templateUrl: config.baseURL + 'app/views/test/testchild/child2.html',
+                controller: "testCtlr as vm"
+            })
+            .state("test.child3", {
+                url: "/child3",
+                templateUrl: config.baseURL + 'app/views/test/testchild/child3.html',
+                controller: "testCtlr as vm"
+            })
+            //.state("demo.form", {
+            //    url: "/form",
+            //    templateUrl: config.baseURL + 'app/views/registration/form.html',
+            //    controller: "demoCtlr as vm"
+            //})
          //.state("employee", {
          //    url: "/employee/:empId",
          //    templateUrl: config.baseURL + 'employee/Index',

@@ -19,7 +19,8 @@
         /*Feature areas */
         //'myApp.home',
         'demo',
-        'test'
+        'test',
+        'home'
 
     ]);
 
