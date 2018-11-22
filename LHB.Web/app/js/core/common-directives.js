@@ -470,6 +470,22 @@
                 }
             };
         })
+.directive('hello', function () {
+    var directive = {};
+    directive.restrict = 'E'; /* restrict this directive to elements */
+    directive.template = "<p>{{greetingTxt}} <strong>{{hello.name}}</strong></p>"; 
+    directive.scope = {
+        hello: "=user"
+    }
+    directive.compile = function (element, attributes) {
+        element.css("color", "#e53b2c"); // initial configuration
+        var linkFunction = function ($scope, element, attributes) {
+            $scope.greetingTxt = "Hello & Welcome - "; // data binding
+        }
+        return linkFunction;
+    }
+    return directive;
+})
 
         // This can be further enhanced to include more messages.
         .factory('csGridService', [

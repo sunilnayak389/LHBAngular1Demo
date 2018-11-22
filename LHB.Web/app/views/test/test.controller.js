@@ -15,7 +15,13 @@
             address: '1600 Amphitheatre'
         };
 
+        //Directive
 
+        $scope.abhi = {};
+        $scope.abhi.name = "Abhimanyu";
+        $scope.rohit = {};
+        $scope.rohit.name = "Rohit";
+        //
 
         function SaveData() {
             return testservice.SaveEmployeeData(vm.user).then(function (data) {
