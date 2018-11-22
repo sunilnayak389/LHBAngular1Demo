@@ -15,10 +15,21 @@
     <link href="content/DataTables/css/dataTables.bootstrap.css" rel="stylesheet" />
 </head>
 <body ng-cloak>
-    <!--<a ui-sref="demo">Demo</a>
-    <a ui-sref="home">Home</a>
-    <ui-view></ui-view>-->
-    <div ng-controller="testCtlr as vm">
+
+
+    <div>
+        Liquid Hub Header
+    </div>
+    <nav>
+        <a ui-sref="test1">Test1</a>
+        <a ui-sref="test">Test</a>
+        <a ui-sref="home">Home</a>
+    </nav>
+
+    <ui-view>
+        
+    </ui-view>
+    <!--<div ng-controller="testCtlr as vm">
         <div>
             <h1>
                 Welcome To Angular Training Session  {{name}}.
@@ -27,13 +38,9 @@
             <h3>{{vm.name1}}</h3>
             <div ng-include="'app/views/test/test1.html'"></div>
 
-            <button>
-
-            </button>
+            <button></button>
         </div>
-    </div>
-
-
+    </div>-->
     <!--<div ng-include="'app/views/test/test.html'"></div>-->
     <!--<div ng-include="'/app/views/demo/demo.html'"></div>-->
     <!--Import all require js files here-->
@@ -76,6 +83,7 @@
     <script src="app/js/services/test.service.js"></script>
     <!--Page Specific Js files-->
     <!--<script src="app/views/home/home.js"></script>-->
+    <script src="app/views/home/home.controller.js"></script>
     <script src="app/views/demo/demo.controller.js"></script>
     <script src="app/views/test/test.controller.js"></script>
 </body>

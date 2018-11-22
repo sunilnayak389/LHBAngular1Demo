@@ -2,17 +2,17 @@
     'use strict';
     angular.module("test", ['ngRoute', 'CommonServices','testserviceModule']);
     
-    angular.module('test').controller('testCtlr', ['$scope','$q', 'testservice', function ($scope, $q, testservice) {
+    angular.module('test').controller('testCtlr', ['$scope', '$q', '$state', '$stateParams', 'testservice', function ($scope, $q, $state, $stateParams, testservice) {
         var vm = this;
+      
         $scope.name = "Liquid HUB";
         vm.name1 = "Capgemini";
         vm.getData = GetTestData;
         vm.testData = [];
         vm.user = {};
         vm.saveData = SaveData;
-
-
-
+        vm.myName = $state.params.name;
+        
 
         function SaveData() {
             return testservice.SaveEmployeeData(vm.user).then(function (data) {
