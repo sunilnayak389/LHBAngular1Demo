@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\js\core\app.js" />
+    <Content Include="app\js\core\common-directives.js" />
     <Content Include="app\js\core\common-services.js" />
     <Content Include="app\js\core\config.js" />
     <Content Include="app\js\core\constant-services.js" />

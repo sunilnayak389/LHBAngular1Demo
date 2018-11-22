@@ -10,7 +10,10 @@
         vm.testData = [];
         vm.user = {};
         vm.saveData = SaveData;
-
+        $scope.customer = {
+            name: 'Naomi',
+            address: '1600 Amphitheatre'
+        };
 
 
 
@@ -63,7 +66,11 @@
         //    alert('Failed: ' + reason);
         //});
         //End
-    }]);
+    }]).directive('myCustomer', function () {
+        return {
+            template: 'Name: {{customer.name}} Address: {{customer.address}}'
+        };
+    });;
     
 
     
