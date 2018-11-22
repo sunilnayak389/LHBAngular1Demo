@@ -473,9 +473,9 @@
 .directive('hello', function () {
     var directive = {};
     directive.restrict = 'E'; /* restrict this directive to elements */
-    directive.template = "<p>{{greetingTxt}} <strong>{{hello.name}}</strong></p>"; 
+    directive.template = "<p>{{greetingTxt}} <strong>{{user.name}}</strong></p>"; 
     directive.scope = {
-        hello: "=user"
+        user: "=user"
     }
     directive.compile = function (element, attributes) {
         element.css("color", "#e53b2c"); // initial configuration
@@ -485,7 +485,17 @@
         return linkFunction;
     }
     return directive;
-})
+        })
+        .directive('myGreeting', [function () {
+            return {
+                restrict: 'E',
+                scope: {
+                    salutation: '=',
+                    name: '='
+                },
+                template: $('#my-greeting-template').html()
+            };
+        }])
 
         // This can be further enhanced to include more messages.
         .factory('csGridService', [

@@ -1,6 +1,6 @@
 ﻿(function () {
     'use strict';
-    angular.module("test", ['ngRoute', 'CommonServices','testserviceModule']);
+    angular.module("test", ['ngRoute', 'CommonServices', 'testserviceModule', 'myApp.CommonDirectives']);
     
     angular.module('test').controller('testCtlr', ['$scope', '$q', '$state', '$stateParams', 'testservice', function ($scope, $q, $state, $stateParams, testservice) {
         var vm = this;
@@ -22,6 +22,15 @@
         $scope.abhi.name = "Abhimanyu";
         $scope.rohit = {};
         $scope.rohit.name = "Rohit";
+
+
+        $scope.items = [{
+            salutation: 'Hello',
+            name: 'World'
+        }, {
+            salutation: 'Konichiwa',
+            name: 'Mr. Roboto'
+        }];
         //
 
         vm.myName = $state.params.name;
