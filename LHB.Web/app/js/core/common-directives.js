@@ -510,12 +510,38 @@
         //                    return true;
         //                }
 
-        //                // it is invalid
-        //                return false;
-        //            };
-        //        }
-        //    };
-        //})
+                        // it is invalid
+                        return false;
+                    };
+                }
+            };
+        })
+.directive('hello', function () {
+    var directive = {};
+    directive.restrict = 'E'; /* restrict this directive to elements */
+    directive.template = "<p>{{greetingTxt}} <strong>{{user.name}}</strong></p>"; 
+    directive.scope = {
+        user: "=user"
+    }
+    directive.compile = function (element, attributes) {
+        element.css("color", "#e53b2c"); // initial configuration
+        var linkFunction = function ($scope, element, attributes) {
+            $scope.greetingTxt = "Hello & Welcome - "; // data binding
+        }
+        return linkFunction;
+    }
+    return directive;
+        })
+        .directive('myGreeting', [function () {
+            return {
+                restrict: 'E',
+                scope: {
+                    salutation: '=',
+                    name: '='
+                },
+                template: $('#my-greeting-template').html()
+            };
+        }])
 
         // This can be further enhanced to include more messages.
         .factory('csGridService', [

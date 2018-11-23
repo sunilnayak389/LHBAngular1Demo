@@ -1,6 +1,13 @@
 ﻿<div>
     <h1>
         Child3 View Rendered
+
+        <script id='my-greeting-template' type='text/x-template'>
+            <h1>{{ salutation }}, {{ name }}!</h1>
+        </script>
+        <my-greeting ng-repeat='item in items'
+                     salutation='item.salutation' name='item.name'>
+        </my-greeting>
     </h1>
 
     <div class="row"><!--  -->
