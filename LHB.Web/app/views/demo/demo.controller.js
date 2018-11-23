@@ -3,6 +3,7 @@
     angular.module("demo", ['ngRoute', 'CommonServices', 'demoservice'])
     .filter('startsWithA', function () {
         return function (items) {
+            debugger;
             var filtered = [];
             for (var i = 0; i < items.length; i++) {
                 var item = items[i];
@@ -40,7 +41,7 @@
             return function (input) {
                 return input.replace(/\w\S*/g, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); });
             }
-        });;
+        });
        //.controller('demoCtlr', demoCtlr);
   //  angular.module('demo').config(config);
 

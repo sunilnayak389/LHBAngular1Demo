@@ -7,7 +7,7 @@
 
         /*Our reusable cross app code modules
          * 'blocks.exception',*/
-        //'myApp.CommonDirectives',
+        'myApp.CommonDirectives',
         'CommonServices',
         'demoDataServicesModule',
         'demoservice',

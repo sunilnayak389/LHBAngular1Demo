@@ -134,7 +134,7 @@
             .state("test.child1", {
                 url: "/child1/:name",
                 templateUrl: config.baseURL + 'app/views/test/testchild/child1.html',
-                controller: "testCtlr as vm"
+                controller: "child1Ctlr as vm"
             })
             .state("test.child2", {
                 url: "/child2",

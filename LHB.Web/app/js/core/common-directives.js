@@ -2,6 +2,51 @@
     'use strict';
   
     angular.module('myApp.CommonDirectives', [])
+        .directive('ngDraggable', function ($document, $window) {
+            function makeDraggable(scope, element, attr) {
+                var startX = 0;
+                var startY = 0;
+
+                // Start with a random pos
+                var x = Math.floor((Math.random() * 500) + 40);
+                var y = Math.floor((Math.random() * 360) + 40);
+
+                element.css({
+                    position: 'absolute',
+                    cursor: 'pointer',
+                    top: y + 'px',
+                    left: x + 'px'
+                });
+
+                element.on('mousedown', function (event) {
+                    event.preventDefault();
+
+                    startX = event.pageX - x;
+                    startY = event.pageY - y;
+
+                    $document.on('mousemove', mousemove);
+                    $document.on('mouseup', mouseup);
+                });
+
+                function mousemove(event) {
+                    y = event.pageY - startY;
+                    x = event.pageX - startX;
+
+                    element.css({
+                        top: y + 'px',
+                        left: x + 'px'
+                    });
+                }
+
+                function mouseup() {
+                    $document.unbind('mousemove', mousemove);
+                    $document.unbind('mouseup', mouseup);
+                }
+            }
+            return {
+                link: makeDraggable
+            };
+        })
         .directive('ngFloatRange', function () {
             return {
                 require: 'ngModel',
@@ -448,28 +493,29 @@
                 return filtered;
             };
         })
-        .directive('gmail', function () {
-            return {
-                require: 'ngModel',
-                link: function (scope, elm, attrs, ctrl) {
-                    var EMAIL_REGEXP = /^[a-z0-9](\.?[a-z0-9]){5,}@g(oogle)?mail\.com$/;
-                    ctrl.$validators.email = function (modelValue, viewValue) {
-                        if (ctrl.$isEmpty(modelValue)) {
-                            // consider empty models to be valid
-                            return true;
-                        }
+        //.directive('gmail', function () {
+        //    return {
+        //        require: 'ngModel',
+        //        link: function (scope, elm, attrs, ctrl) {
+                    
+        //            var EMAIL_REGEXP = /^[a-z0-9](\.?[a-z0-9]){5,}@g(oogle)?mail\.com$/;
+        //            ctrl.$validators.email = function (modelValue, viewValue) {
+        //                if (ctrl.$isEmpty(modelValue)) {
+        //                    // consider empty models to be valid
+        //                    return true;
+        //                }
 
-                        if (EMAIL_REGEXP.test(viewValue)) {
-                            // it is valid
-                            return true;
-                        }
+        //                if (EMAIL_REGEXP.test(viewValue)) {
+        //                    // it is valid
+        //                    return true;
+        //                }
 
-                        // it is invalid
-                        return false;
-                    };
-                }
-            };
-        })
+        //                // it is invalid
+        //                return false;
+        //            };
+        //        }
+        //    };
+        //})
 
         // This can be further enhanced to include more messages.
         .factory('csGridService', [

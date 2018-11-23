@@ -20,7 +20,8 @@
         //'myApp.home',
         'demo',
         'test',
-        'home'
+        'home',
+        'child1module'
 
     ]);
 
