@@ -139,12 +139,12 @@
 
                             var legalKeyCode =
                                 (!event.shiftKey && !event.ctrlKey && !event.altKey)
-                                    &&
-                                    (jQuery.inArray(event.keyCode, allowedSpecialCharKeyCodes) >= 0
-                                        ||
-                                        jQuery.inArray(event.keyCode, numberKeyCodes) >= 0
-                                        ||
-                                        jQuery.inArray(event.keyCode, commaKeyCode) >= 0);
+                                &&
+                                (jQuery.inArray(event.keyCode, allowedSpecialCharKeyCodes) >= 0
+                                    ||
+                                    jQuery.inArray(event.keyCode, numberKeyCodes) >= 0
+                                    ||
+                                    jQuery.inArray(event.keyCode, commaKeyCode) >= 0);
 
                             // Allow for $
                             if (!legalKeyCode && event.shiftKey && event.keyCode === 52)
@@ -173,24 +173,24 @@
             };
         }]).
 
-      
 
-            directive('ngDecimal', function () {
-                return function (scope, element, attrs) {
 
-                    var keyCode = [8, 9, 37, 39, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 110, 188, 189, 190];
-                    element.bind("keydown", function (event) {
-                        if ($.inArray(event.which, keyCode) === -1) {
-                            scope.$apply(function () {
-                                scope.$eval(attrs.onlyNum);
-                                event.preventDefault();
-                            });
+        directive('ngDecimal', function () {
+            return function (scope, element, attrs) {
+
+                var keyCode = [8, 9, 37, 39, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 110, 188, 189, 190];
+                element.bind("keydown", function (event) {
+                    if ($.inArray(event.which, keyCode) === -1) {
+                        scope.$apply(function () {
+                            scope.$eval(attrs.onlyNum);
                             event.preventDefault();
-                        }
+                        });
+                        event.preventDefault();
+                    }
 
-                    });
-                };
-            }).
+                });
+            };
+        }).
 
         directive('numbersOnly', function () {
             return {
@@ -212,7 +212,7 @@
                 }
             };
         }).
-     
+
         directive('ngCurrency', [
             '$filter', '$locale', function ($filter, $locale) {
                 return {
@@ -285,14 +285,14 @@
 
                             var legalKeyCode =
                                 (!event.shiftKey && !event.ctrlKey && !event.altKey)
-                                    &&
-                                    (jQuery.inArray(event.keyCode, allowedSpecialCharKeyCodes) >= 0
-                                        ||
-                                        jQuery.inArray(event.keyCode, numberKeyCodes) >= 0
-                                        ||
-                                        jQuery.inArray(event.keyCode, commaKeyCode) >= 0
-                                        ||
-                                        jQuery.inArray(event.keyCode, decimalKeyCode) >= 0);
+                                &&
+                                (jQuery.inArray(event.keyCode, allowedSpecialCharKeyCodes) >= 0
+                                    ||
+                                    jQuery.inArray(event.keyCode, numberKeyCodes) >= 0
+                                    ||
+                                    jQuery.inArray(event.keyCode, commaKeyCode) >= 0
+                                    ||
+                                    jQuery.inArray(event.keyCode, decimalKeyCode) >= 0);
 
                             // Allow for $
                             if (!legalKeyCode && event.shiftKey && event.keyCode === 52)
@@ -415,14 +415,14 @@
 
                             var legalKeyCode =
                                 (!event.shiftKey && !event.ctrlKey && !event.altKey)
-                                    &&
-                                    (jQuery.inArray(event.keyCode, allowedSpecialCharKeyCodes) >= 0
-                                        ||
-                                        jQuery.inArray(event.keyCode, numberKeyCodes) >= 0
-                                        ||
-                                        //jQuery.inArray(event.keyCode, commaKeyCode) >= 0
-                                        //||
-                                        jQuery.inArray(event.keyCode, decimalKeyCode) >= 0);
+                                &&
+                                (jQuery.inArray(event.keyCode, allowedSpecialCharKeyCodes) >= 0
+                                    ||
+                                    jQuery.inArray(event.keyCode, numberKeyCodes) >= 0
+                                    ||
+                                    //jQuery.inArray(event.keyCode, commaKeyCode) >= 0
+                                    //||
+                                    jQuery.inArray(event.keyCode, decimalKeyCode) >= 0);
 
                             // Allow for $
                             if (!legalKeyCode && event.shiftKey && event.keyCode === 52)
@@ -493,22 +493,23 @@
                 return filtered;
             };
         })
-        //.directive('gmail', function () {
-        //    return {
-        //        require: 'ngModel',
-        //        link: function (scope, elm, attrs, ctrl) {
-                    
-        //            var EMAIL_REGEXP = /^[a-z0-9](\.?[a-z0-9]){5,}@g(oogle)?mail\.com$/;
-        //            ctrl.$validators.email = function (modelValue, viewValue) {
-        //                if (ctrl.$isEmpty(modelValue)) {
-        //                    // consider empty models to be valid
-        //                    return true;
-        //                }
+        .directive('gmail', function () {
+            return {
+                require: 'ngModel',
+                link: function (scope, elm, attrs, ctrl) {
 
-        //                if (EMAIL_REGEXP.test(viewValue)) {
-        //                    // it is valid
-        //                    return true;
-        //                }
+                    $($(elm)).css('color', 'purple')
+                    var EMAIL_REGEXP = /^[a-z0-9](\.?[a-z0-9]){5,}@g(oogle)?mail\.com$/;
+                    ctrl.$validators.email = function (modelValue, viewValue) {
+                        if (ctrl.$isEmpty(modelValue)) {
+                            // consider empty models to be valid
+                            return true;
+                        }
+
+                        if (EMAIL_REGEXP.test(viewValue)) {
+                            // it is valid
+                            return true;
+                        }
 
                         // it is invalid
                         return false;
@@ -516,21 +517,22 @@
                 }
             };
         })
-.directive('hello', function () {
-    var directive = {};
-    directive.restrict = 'E'; /* restrict this directive to elements */
-    directive.template = "<p>{{greetingTxt}} <strong>{{user.name}}</strong></p>"; 
-    directive.scope = {
-        user: "=user"
-    }
-    directive.compile = function (element, attributes) {
-        element.css("color", "#e53b2c"); // initial configuration
-        var linkFunction = function ($scope, element, attributes) {
-            $scope.greetingTxt = "Hello & Welcome - "; // data binding
-        }
-        return linkFunction;
-    }
-    return directive;
+        .directive('lhbGreetings', function () {
+            var directive = {};
+            directive.restrict = 'A'; /* restrict this directive to elements */
+            directive.template = "<div ng-transclude></div><p> {{greetingTxt}} <strong>{{user.name}}</strong></p>";
+            directive.transclude = true;
+            directive.scope = {
+                user: "=user"
+            };
+            directive.compile = function (element, attributes) {
+                element.css("color", "#e53b2c"); // initial configuration
+                var linkFunction = function ($scope, element, attributes) {
+                    $scope.greetingTxt = "Hello & Welcome - "; // data binding
+                };
+                return linkFunction;
+            };
+            return directive;
         })
         .directive('myGreeting', [function () {
             return {
@@ -542,7 +544,59 @@
                 template: $('#my-greeting-template').html()
             };
         }])
+        .directive('parentDirective', function () {
+            return {
+                restrict: 'E',
+                template: 'LHB<child-directive></child-directive>LHBEND',
+                controller: function ($scope, $element) {
+                    this.name = "Hi Sunil Nayak";
+                }
+            };
+        })
+        .directive('childDirective', function () {
+            return {
+                restrict: 'E',
+                template: '<h1>I am child of {{myname}}</h1>',
+                // replace: true,
+                require: '^parentDirective',
+                link: function ($scope, $element, attr, lhb) {
+                    $scope.myname = lhb.name;
+                    debugger;
 
+                    //you now have access to parentDirectCtrl.variable
+                }
+            }
+        })
+        .directive('son', function () {
+            return {
+                restrict: 'EA',
+                template: '<div class="son">{{sonSays}}</div>',
+                link: function (scope, elem, attr) {
+                    scope.sonSays = 'Hey, I am son, and my dad is ' + scope.name;
+                }
+            };
+        })
+    .directive('dad', function () {
+        return {
+            restrict: 'EA',
+            template: '<div class="dad">{{greeting}}{{name}}' +
+                '<son></son>' +
+                '</div>',
+            link: {
+                
+                pre: function (scope, elem, attr) {
+                    
+                    scope.name = 'Paul';
+                    scope.greeting = 'Hey, I am ';
+                }
+
+                //post: function (scope, elem, attr) {
+                //    debugger;
+                //    scope.name = "sunil";
+                //}
+            }
+        };
+    })
         // This can be further enhanced to include more messages.
         .factory('csGridService', [
             '$rootScope', function ($rootScope) {

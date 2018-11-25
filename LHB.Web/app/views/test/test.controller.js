@@ -30,6 +30,9 @@
         $scope.rohit = {};
         $scope.rohit.name = "Rohit";
 
+        $scope.userData = { name: 'LiquidHub' };
+
+
 
         $scope.items = [{
             salutation: 'Hello',
@@ -41,7 +44,7 @@
         //
 
         vm.myName = $state.params.name;
-        
+
 
         function SaveData() {
             return testservice.SaveEmployeeData(vm.user).then(function (data) {
@@ -95,7 +98,7 @@
     }])
         .filter('startsWithLetter', function () {
             return function (items, letter) {
-                
+
                 var filtered = [];
                 var letterMatch = new RegExp(letter, 'i');
                 for (var i = 0; i < items.length; i++) {
@@ -109,7 +112,7 @@
         })
         .filter('pascalCase', function () {
             return function (input) {
-               
+
                 return input.replace(/\w\S*/g, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); });
             }
         })
@@ -125,7 +128,7 @@
         }])
         .filter('startsWithA', function () {
             return function (items, idName) {
-                debugger;
+              
                 var filtered = [];
                 for (var i = 0; i < items.length; i++) {
                     var item = items[i];
@@ -137,36 +140,8 @@
             };
         })
         .directive('myCustomer', function () {
-        return {
-            template: 'Name: {{customer.name}} Address: {{customer.address}}'
-        };
-        })
-        .directive('gmail', function () {
             return {
-                require: 'ngModel',
-                link: function (scope, elm, attrs, ctrl) {
-                    debugger;
-                    var EMAIL_REGEXP = /^[a-z0-9](\.?[a-z0-9]){5,}@g(oogle)?mail\.com$/;
-                    ctrl.$validators.email = function (modelValue, viewValue) {
-                        if (ctrl.$isEmpty(modelValue)) {
-                            // consider empty models to be valid
-                            return true;
-                        }
-
-                        if (EMAIL_REGEXP.test(viewValue)) {
-                            // it is valid
-                            return true;
-                        }
-
-                        // it is invalid
-                        return false;
-                    };
-                }
+                template: 'Name: {{customer.name}} Address: {{customer.address}}'
             };
-        })
-        ;
-    
-
-    
-
-})();
+        });
+      })();

@@ -5,12 +5,23 @@
         <script id='my-greeting-template' type='text/x-template'>
             <h1>{{ salutation }}, {{ name }}!</h1>
         </script>
+
+
         <my-greeting ng-repeat='item in items'
                      salutation='item.salutation' name='item.name'>
         </my-greeting>
     </h1>
 
-    <div class="row"><!--  -->
+
+    <parent-directive ng-if="false">Hello World</parent-directive>
+
+    <dad></dad>
+
+
+    <!--<lhb-greetings user="userData"> </lhb-greetings>-->
+    <div lhb-greetings user="userData"></div>
+    <div class="row">
+        <!--  -->
 
         <div class="col-sm-6">
             <!-- FORM ============ -->
@@ -43,9 +54,9 @@
 
                 <div class="form-group" ng-class="{ 'has-error' : userForm.gmail.$invalid && !userForm.gmail.$pristine }">
                     Valid emails only from google:
-                    <input type="email" ng-model="gmail" name="gmail" gmail required />{{user.gmail}}<br />
-                    <span ng-show="userForm.gmail.$error.email">This is not a valid e-mail!</span>
-                    <p ng-show="userForm.gmail.$invalid && !userForm.gmail.$pristine" class="help-block">Enter a valid  gmail id.</p>
+                    <input type="email" class="form-control" ng-model="gmail" name="gmail" gmail required />{{user.gmail}}<br />
+                    <span ng-show="userForm.gmail.$error.email" class="help-block">This is not a valid G-mail!</span>
+                    <p ng-show="userForm.gmail.$error.required" class="help-block">Please enter a  gmail id.</p>
                 </div>
 
 
