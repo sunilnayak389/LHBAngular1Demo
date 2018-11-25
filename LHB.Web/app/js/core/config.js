@@ -121,6 +121,11 @@
               templateUrl: config.baseURL + 'app/views/home/home.html',
               controller: "homeCtlr as vm"
             })
+            .state("demo", {
+                url: "/demo",
+                templateUrl: config.baseURL + 'app/views/demo/demo.html',
+                controller: "demoCtlr as vm"
+            })
             .state("test1", {
                 url: "/lhb",
                 templateUrl: config.baseURL + 'app/views/test/test1.html',

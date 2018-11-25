@@ -547,9 +547,34 @@
         .directive('parentDirective', function () {
             return {
                 restrict: 'E',
-                template: 'LHB<child-directive></child-directive>LHBEND',
-                controller: function ($scope, $element) {
-                    this.name = "Hi Sunil Nayak";
+                template: '<child-directive></child-directive>',
+                //controller: function ($scope, $element) {
+                //    this.name = "Hi Sunil Nayak";
+                //}
+
+
+                //  controller: function ($scope, $element) {
+                //      this.name = "Hi Sunil Nayak";
+                //    debugger;
+
+                //    //you now have access to parentDirectCtrl.variable
+                //}
+                scope: {
+                    
+                    myname: '='
+                },
+                compile: function (tElem, tAttrs) {
+                   
+                    return {
+                        //pre: function (scope, iElem, iAttrs) {
+                        //    console.log(name + ': pre link => ' + iElem.html());
+                        //},
+                        pre: function (scope, iElem, iAttrs) {
+                            //console.log(name + ': post link => ' + iElem.html());
+                            debugger;
+                            scope.myname = "Itishree Nayak";
+                        }
+                    }
                 }
             };
         })
@@ -558,12 +583,28 @@
                 restrict: 'E',
                 template: '<h1>I am child of {{myname}}</h1>',
                 // replace: true,
-                require: '^parentDirective',
-                link: function ($scope, $element, attr, lhb) {
-                    $scope.myname = lhb.name;
-                    debugger;
+              //  require: '^parentDirective',
+                //link: function ($scope, $element, attr, lhb) {
+                //    $scope.myname = lhb.name;
+                //    debugger;
+
+                //    //you now have access to parentDirectCtrl.variable
+                //}
+
+                link: {
+
+                    post: function ($scope, $element, attr, lhb) {
+                        debugger;
+                    $scope.myname = "Sunil Nayak";
+                   
 
                     //you now have access to parentDirectCtrl.variable
+                }
+
+                    //post: function (scope, elem, attr) {
+                    //    debugger;
+                    //    scope.name = "sunil";
+                    //}
                 }
             }
         })
@@ -576,45 +617,27 @@
                 }
             };
         })
-    .directive('dad', function () {
-        return {
-            restrict: 'EA',
-            template: '<div class="dad">{{greeting}}{{name}}' +
-                '<son></son>' +
-                '</div>',
-            link: {
-                
-                pre: function (scope, elem, attr) {
-                    
-                    scope.name = 'Paul';
-                    scope.greeting = 'Hey, I am ';
-                }
+        .directive('dad', function () {
+            return {
+                restrict: 'EA',
+                template: '<div class="dad">{{greeting}}{{name}}' +
+                    '<son></son>' +
+                    '</div>',
+                link: {
 
-                //post: function (scope, elem, attr) {
-                //    debugger;
-                //    scope.name = "sunil";
-                //}
-            }
-        };
-    })
-        // This can be further enhanced to include more messages.
-        .factory('csGridService', [
-            '$rootScope', function ($rootScope) {
+                    pre: function (scope, elem, attr) {
 
-                var message = 'UPDATE_SELECT_SOURCE';
-
-                return {
-                    subscribeColumnData: function (scope, callback) {
-                        scope.$on(message, function (event, args) {
-                            callback(args);
-                        });
-                    },
-
-                    publishColumnData: function (column, data) {
-                        $rootScope.$broadcast(message, { column: column, data: data });
+                        scope.name = 'Paul';
+                        scope.greeting = 'Hey, I am ';
                     }
-                };
-            }
-        ]);
+
+                    //post: function (scope, elem, attr) {
+                    //    debugger;
+                    //    scope.name = "sunil";
+                    //}
+                }
+            };
+        });
+        // This can be further enhanced to include more messages.;
 
 }(angular, jQuery));

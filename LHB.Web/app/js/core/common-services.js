@@ -203,8 +203,28 @@
                 "JobType": 1,
                 "JobOffered": 2
             };
-        }).
-        factory('UserRoleService', function () {
+        })
+        .factory('messageService', function () {
+            debugger;
+            var messenger = {
+                messages: [],
+                identity: 0,
+                addMessage: function (text, caller) {
+
+                    this.identity += 1;
+                    var id = this.identity,
+                        message = {
+                            text: caller + ": " + text,
+                            id: id
+                        };
+
+                    this.messages.push(message);
+                }
+            };
+
+            return messenger;
+        })
+        .factory('UserRoleService', function () {
             return {
                 userRoles: {},
                 roles: {},

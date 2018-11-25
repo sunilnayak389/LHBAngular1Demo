@@ -2,7 +2,7 @@
     'use strict';
     angular.module("test", ['ngRoute', 'CommonServices', 'testserviceModule', 'myApp.CommonDirectives']);
     
-    angular.module('test').controller('testCtlr', ['$scope', '$q', '$state', '$stateParams', 'testservice', function ($scope, $q, $state, $stateParams, testservice) {
+    angular.module('test').controller('testCtlr', ['$scope', '$rootScope', '$q', '$state', '$stateParams', 'testservice','messageService', function ($scope, $rootScope, $q, $state, $stateParams, testservice, messageService) {
         var vm = this;
 
         $scope.name = "Liquid HUB";
@@ -24,7 +24,7 @@
         }
 
         //Directive
-
+        $scope.dirname="Itishree"
         $scope.abhi = {};
         $scope.abhi.name = "Abhimanyu";
         $scope.rohit = {};
@@ -45,7 +45,17 @@
 
         vm.myName = $state.params.name;
 
+        vm.messages1 = messageService.messages;
+        vm.post = {
+            text: ''
+        };
 
+        vm.postMessage = function () {
+            messageService.addMessage(vm.text, "controller 1");
+            vm.text = '';
+        };
+
+     
         function SaveData() {
             return testservice.SaveEmployeeData(vm.user).then(function (data) {
 
@@ -62,7 +72,7 @@
 
 
             return testservice.GetEmployeeData().then(function (data) {
-
+            
                 if (data) {
                     vm.testData = data.data;
                 }

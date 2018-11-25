@@ -4,10 +4,15 @@
     Date : <p>{{ 1400956671914 | date: 'dd-MM-yy hh:mm' }}</p>
 
     <my-customer></my-customer>
-   
+
 
     <hello user="abhi"></hello>
     <hello user="rohit"></hello>
+
+    Controller 1 Message: <input type="text" ng-model="vm.text">
+    <button ng-click="vm.postMessage()">Post</button>
+
+
     <button ng-click="vm.getData()">
         GetData
     </button>
