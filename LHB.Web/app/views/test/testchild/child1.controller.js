@@ -8,13 +8,14 @@
         $scope.title = "Child1 Page";
         $scope.employeeData = [];
         $scope.myName = $state.params.name;
-
+        vm.myCompany = messageService.messages[0].text || "";
         vm.messages2 = messageService.messages;
         vm.post = {
             text: ''
         };
 
         vm.postMessage = function () {
+            debugger;
             messageService.addMessage(vm.text, "controller 2");
             vm.text = '';
         };

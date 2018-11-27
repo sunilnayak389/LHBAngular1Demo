@@ -1,8 +1,8 @@
 ﻿(function () {
     'use strict';
-    angular.module("test", ['ngRoute', 'CommonServices', 'testserviceModule', 'myApp.CommonDirectives']);
+    angular.module("test", ['ngRoute', 'ngStorage', 'CommonServices', 'testserviceModule', 'myApp.CommonDirectives']);
     
-    angular.module('test').controller('testCtlr', ['$scope', '$rootScope', '$q', '$state', '$stateParams', 'testservice','messageService', function ($scope, $rootScope, $q, $state, $stateParams, testservice, messageService) {
+    angular.module('test').controller('testCtlr', ['$scope', '$rootScope', '$q', '$state', '$stateParams', 'testservice', 'messageService', '$localStorage', function ($scope, $rootScope, $q, $state, $stateParams, testservice, messageService, $localStorage) {
         var vm = this;
 
         $scope.name = "Liquid HUB";
@@ -19,12 +19,26 @@
             name: 'Naomi',
             address: '1600 Amphitheatre'
         };
+
+        $scope.$storage = $localStorage.$default({
+          x: 42
+        });
+        
+        $scope.deleteX = function() {
+          delete $scope.$storage.x;
+        };
+        
+        $scope.deleteY = function() {
+          delete $localStorage.y;
+        };
+
         function submitForm(form) {
             debugger;
         }
 
         //Directive
-        $scope.dirname="Itishree"
+        $scope.dirname = "Itishree";
+
         $scope.abhi = {};
         $scope.abhi.name = "Abhimanyu";
         $scope.rohit = {};
@@ -51,6 +65,7 @@
         };
 
         vm.postMessage = function () {
+            debugger;
             messageService.addMessage(vm.text, "controller 1");
             vm.text = '';
         };

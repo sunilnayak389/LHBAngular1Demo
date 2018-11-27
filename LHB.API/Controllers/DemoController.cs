@@ -23,7 +23,7 @@ namespace LHB.API.Controllers
             // var empList = new List<EmployeeVM>();
             var empList = new Object();
 
-            using (StreamReader r = new StreamReader("C:/Users/SUNIL/Source/Repos/LHBAngular1Demo/LHB.API/demodata.json"))
+            using (StreamReader r = new StreamReader("C:/Users/SUNIL/InovateurTechnology/Corporate Training/Capgemini/ProjectDemo/LiquidHubAngularDemo/LHB.API/demodata.json"))
             {
                 var json = r.ReadToEnd();
                 empList = JsonConvert.DeserializeObject<Object>(json);

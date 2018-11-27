@@ -17,6 +17,10 @@
 
     <dad></dad>
 
+    <button ng-click="$storage.x = $storage.x + 1">{{$storage.x}}</button> + <button ng-click="$storage.y = $storage.y + 1">{{$storage.y}}</button> = {{$storage.x + $storage.y}}
+    <hr>
+    <button ng-click="deleteX()">Delete $scope.$storage.x</button> | <button ng-click="deleteY()">Delete $localStorage.y</button>
+
 
     <!--<lhb-greetings user="userData"> </lhb-greetings>-->
     <div lhb-greetings user="userData"></div>

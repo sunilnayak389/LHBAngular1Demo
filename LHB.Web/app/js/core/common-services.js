@@ -205,7 +205,6 @@
             };
         })
         .factory('messageService', function () {
-            debugger;
             var messenger = {
                 messages: [],
                 identity: 0,
